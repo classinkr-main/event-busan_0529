@@ -75,7 +75,7 @@ export default function EventInfo() {
             <span className="text-sm font-medium">초청장 안내</span>
           </div>
           <p className="text-sm text-white/60">
-            기관당 1인 입장 제한 · 본 초청장 소지자에 한해 입장 가능합니다.
+            본 초청장 소지자에 한해 입장 가능합니다.
           </p>
         </div>
       </div>
