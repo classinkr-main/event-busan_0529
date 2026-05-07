@@ -76,7 +76,7 @@ export default function Agenda() {
                     </p>
                   </div>
                 </div>
-                <div className="hidden sm:block sm:flex-1" />
+                <div className="hidden sm:block sm:flex-1 sm:px-8" />
               </div>
             ))}
           </div>
