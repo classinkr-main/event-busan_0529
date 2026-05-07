@@ -29,7 +29,7 @@ const institutions: Institution[] = [
     country: "China",
     flag: "🇨🇳",
     description:
-      "1997년 설립, 화남지역 대표 교육기관. 교사 3,000명, 연간 학생 30만 명+, 276개 캠퍼스, 2018년 홍콩 IPO 상장.",
+      "1997년 설립, 화남지역 대표 교육기관. 교사 3,000명, 연간 학생 30만 명+, 276개 캠퍼스, 2018년 홍콩 IPO.",
   },
   {
     name: "邦德华纳",
@@ -40,8 +40,8 @@ const institutions: Institution[] = [
       "화남 지역 대표 교육기관. 제주 지역 20년+ 운영, 학생 2만 명+, 30+ 캠퍼스, K12 전 과목 보충교육. '오프라인 소그룹 + 지역 맞춤형 교연' 모델.",
   },
   {
-    name: "蓝天教育 (Sky Edu)",
-    nameLocal: "란티엔 교육",
+    name: "蓝天教育",
+    nameLocal: "Sky Edu",
     country: "China",
     flag: "🇨🇳",
     description:
