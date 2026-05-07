@@ -4,7 +4,7 @@ export default function Hero() {
       {/* Background image layer */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110 origin-left"
+          className="absolute inset-0 bg-cover bg-right scale-110 origin-right"
           style={{ backgroundImage: "url('/wp-tower.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#02060f]/55 via-[#02060f]/75 to-[#02060f]" />
