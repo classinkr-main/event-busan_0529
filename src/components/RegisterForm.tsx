@@ -4,6 +4,15 @@ import { useState } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+type SubmittedData = {
+  name: string;
+  organization: string;
+  position: string;
+  phone: string;
+  email: string;
+  dinner: string;
+};
+
 function formatKoreanPhone(input: string): string {
   const digits = input.replace(/\D/g, "").slice(0, 11);
   if (digits.startsWith("02")) {
@@ -24,6 +33,7 @@ export default function RegisterForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [phone, setPhone] = useState("");
+  const [submitted, setSubmitted] = useState<SubmittedData | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,6 +54,7 @@ export default function RegisterForm() {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || "신청 처리 중 문제가 발생했습니다.");
       }
+      setSubmitted(payload as SubmittedData);
       setStatus("success");
       form.reset();
       setPhone("");
@@ -55,10 +66,21 @@ export default function RegisterForm() {
   }
 
   if (status === "success") {
+    const summary: { label: string; value: string }[] = submitted
+      ? [
+          { label: "이름", value: submitted.name },
+          { label: "소속", value: submitted.organization },
+          { label: "직책", value: submitted.position },
+          { label: "연락처", value: submitted.phone },
+          { label: "이메일", value: submitted.email },
+          { label: "저녁 만찬", value: submitted.dinner || "-" },
+        ]
+      : [];
+
     return (
-      <div className="glass-strong rounded-3xl p-10 sm:p-14 text-center">
-        <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] flex items-center justify-center mb-6">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+      <div className="glass-strong rounded-2xl sm:rounded-3xl p-7 sm:p-12 text-center">
+        <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] flex items-center justify-center mb-5 sm:mb-6">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
             <path
               d="M5 12l5 5L20 7"
               stroke="white"
@@ -71,14 +93,45 @@ export default function RegisterForm() {
         <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
           신청이 완료되었습니다
         </h3>
-        <p className="mt-4 text-white/60 leading-relaxed">
+        <p className="mt-4 text-sm sm:text-base text-white/60 leading-relaxed">
           상세 내용 안내를 위해
           <br />
           담당자가 순차적으로 전화 연락드릴 예정입니다.
         </p>
+
+        {summary.length > 0 && (
+          <div className="mt-8 sm:mt-10 text-left">
+            <div className="text-xs tracking-[0.25em] text-white/40 mb-3 sm:mb-4 text-center">
+              입력하신 정보를 확인해주세요
+            </div>
+            <dl className="rounded-2xl border border-white/10 bg-white/[0.03] divide-y divide-white/5 overflow-hidden">
+              {summary.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-start gap-4 px-4 sm:px-5 py-3"
+                >
+                  <dt className="w-20 sm:w-24 shrink-0 text-xs sm:text-sm text-white/50">
+                    {item.label}
+                  </dt>
+                  <dd className="flex-1 text-sm sm:text-base text-white/90 break-all">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )}
+
+        <p className="mt-8 sm:mt-10 text-base sm:text-lg font-medium text-white/80">
+          행사장에서 뵙겠습니다.
+        </p>
+
         <button
-          onClick={() => setStatus("idle")}
-          className="mt-8 text-sm text-white/50 hover:text-white underline underline-offset-4 transition-colors"
+          onClick={() => {
+            setStatus("idle");
+            setSubmitted(null);
+          }}
+          className="mt-6 text-xs sm:text-sm text-white/40 hover:text-white underline underline-offset-4 transition-colors"
         >
           새 신청서 작성
         </button>
