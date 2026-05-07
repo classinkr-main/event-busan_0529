@@ -8,11 +8,11 @@ export default function Footer() {
               2026 ASIA AI EDUCATION
             </div>
             <div className="text-sm sm:text-base font-medium text-white/80">
-              Classin × WP과사람
+              Classin × WP과사람 교육기업
             </div>
           </div>
           <div className="text-[11px] sm:text-xs text-white/40 text-center sm:text-right leading-relaxed">
-            © 2026 Classin & WP과사람. All rights reserved.
+            © 2026 Classin & WP과사람 교육기업. All rights reserved.
             <br />
             본 초청장은 전송이 제한된 비공개 행사 안내입니다.
           </div>
