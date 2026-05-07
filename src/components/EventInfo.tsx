@@ -13,7 +13,7 @@ const items: Item[] = [
   },
   {
     label: "장소",
-    primary: "부산 WP과사람 교육기업 WP타워",
+    primary: "부산 과사람 WP타워",
     secondary: "15층 아리스토텔레스홀",
     tertiary: "부산 동래구 아시아드대로 245 위드피플타워",
   },

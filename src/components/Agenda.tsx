@@ -40,7 +40,7 @@ export default function Agenda() {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="text-xs sm:text-sm text-white/80">부산 WP과사람 교육기업 WP타워</span>
+            <span className="text-xs sm:text-sm text-white/80">부산 과사람 WP타워</span>
           </div>
         </div>
 
