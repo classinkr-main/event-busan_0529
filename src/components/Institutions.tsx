@@ -40,8 +40,8 @@ const institutions: Institution[] = [
       "화남 지역 대표 교육기관. 제주 지역 20년+ 운영, 학생 2만 명+, 30+ 캠퍼스, K12 전 과목 보충교육. '오프라인 소그룹 + 지역 맞춤형 교연' 모델.",
   },
   {
-    name: "蓝天教育",
-    nameLocal: "Sky Edu",
+    name: "蓝天教育 (Sky Edu)",
+    nameLocal: "란티엔 교육",
     country: "China",
     flag: "🇨🇳",
     description:
@@ -57,7 +57,7 @@ const institutions: Institution[] = [
   },
   {
     name: "CKC",
-    nameLocal: "CKC",
+    nameLocal: "CKC 교육그룹",
     country: "Japan",
     flag: "🇯🇵",
     description:
@@ -81,7 +81,7 @@ const institutions: Institution[] = [
   },
   {
     name: "Giáo dục Galaxy",
-    nameLocal: "Galaxy Education",
+    nameLocal: "갤럭시 에듀케이션",
     country: "Vietnam",
     flag: "🇻🇳",
     description:
@@ -118,10 +118,10 @@ export default function Institutions() {
                 <div className="text-2xl sm:text-3xl">{inst.flag}</div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-lg sm:text-2xl font-bold leading-tight tracking-tight">
-                    {inst.name}
+                    {inst.nameLocal}
                   </h3>
                   <div className="mt-1 text-xs sm:text-sm text-white/50">
-                    {inst.nameLocal} · {inst.country}
+                    {inst.name} · {inst.country}
                   </div>
                 </div>
               </div>
