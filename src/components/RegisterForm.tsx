@@ -143,8 +143,8 @@ export default function RegisterForm() {
     <form onSubmit={handleSubmit} className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
         <Field label="이름" name="name" placeholder="홍길동" required />
-        <Field label="소속" name="organization" placeholder="기관/회사명" required />
-        <Field label="직책" name="position" placeholder="대표 / 디렉터 등" required />
+        <Field label="소속" name="organization" placeholder="학원/기관명" required />
+        <Field label="직책" name="position" placeholder="원장/부원장 등" required />
         <div>
           <label htmlFor="phone" className="block text-sm text-white/70 mb-2 font-medium">
             연락처<span className="text-[var(--accent-from)] ml-1">*</span>
