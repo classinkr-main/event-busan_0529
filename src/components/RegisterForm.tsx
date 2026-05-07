@@ -72,9 +72,9 @@ export default function RegisterForm() {
           신청이 완료되었습니다
         </h3>
         <p className="mt-4 text-white/60 leading-relaxed">
-          입력해주신 이메일로 확인 메일을 보내드립니다.
+          상세 내용 안내를 위해
           <br />
-          행사장에서 뵙겠습니다.
+          담당자가 순차적으로 전화 연락드릴 예정입니다.
         </p>
         <button
           onClick={() => setStatus("idle")}
