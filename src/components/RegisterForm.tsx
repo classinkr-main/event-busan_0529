@@ -4,9 +4,26 @@ import { useState } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+function formatKoreanPhone(input: string): string {
+  const digits = input.replace(/\D/g, "").slice(0, 11);
+  if (digits.startsWith("02")) {
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 5) return `${digits.slice(0, 2)}-${digits.slice(2)}`;
+    if (digits.length <= 9)
+      return `${digits.slice(0, 2)}-${digits.slice(2, 5)}-${digits.slice(5)}`;
+    return `${digits.slice(0, 2)}-${digits.slice(2, 6)}-${digits.slice(6, 10)}`;
+  }
+  if (digits.length <= 3) return digits;
+  if (digits.length <= 7) return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+  if (digits.length <= 10)
+    return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+  return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
+}
+
 export default function RegisterForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const [phone, setPhone] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,6 +46,7 @@ export default function RegisterForm() {
       }
       setStatus("success");
       form.reset();
+      setPhone("");
     } catch (err) {
       const msg = err instanceof Error ? err.message : "알 수 없는 오류";
       setErrorMsg(msg);
@@ -69,12 +87,29 @@ export default function RegisterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-strong rounded-3xl p-7 sm:p-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <form onSubmit={handleSubmit} className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
         <Field label="이름" name="name" placeholder="홍길동" required />
         <Field label="소속" name="organization" placeholder="기관/회사명" required />
         <Field label="직책" name="position" placeholder="대표 / 디렉터 등" required />
-        <Field label="연락처" name="phone" type="tel" placeholder="010-0000-0000" required />
+        <div>
+          <label htmlFor="phone" className="block text-sm text-white/70 mb-2 font-medium">
+            연락처<span className="text-[var(--accent-from)] ml-1">*</span>
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="numeric"
+            autoComplete="tel"
+            placeholder="010-0000-0000"
+            required
+            value={phone}
+            onChange={(e) => setPhone(formatKoreanPhone(e.target.value))}
+            className="field"
+            maxLength={13}
+          />
+        </div>
         <div className="sm:col-span-2">
           <Field label="이메일" name="email" type="email" placeholder="name@example.com" required />
         </div>

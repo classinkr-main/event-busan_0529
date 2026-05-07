@@ -25,6 +25,15 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body {
@@ -33,6 +42,16 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "ss02";
   letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* Apple-style page glow background */

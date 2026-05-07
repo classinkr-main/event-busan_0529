@@ -2,17 +2,17 @@ import RegisterForm from "./RegisterForm";
 
 export default function Register() {
   return (
-    <section id="register" className="relative py-32 sm:py-40">
+    <section id="register" className="relative py-20 sm:py-32 md:py-40">
       <div className="max-w-3xl mx-auto px-6 sm:px-10">
-        <div className="text-center mb-16">
-          <p className="text-sm tracking-[0.3em] text-white/50 mb-4">
+        <div className="text-center mb-10 sm:mb-16">
+          <p className="text-xs sm:text-sm tracking-[0.3em] text-white/50 mb-3 sm:mb-4">
             REGISTRATION
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight">
             참가 신청
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed">
-            기관당 1인 입장 제한이 있으니, 동일 기관의 동료 분들도 각자 신청해 주세요.
+          <p className="mt-4 sm:mt-6 text-sm sm:text-lg text-white/60 leading-relaxed">
+            입력해주신 정보를 바탕으로 개별 초대장을 발송해 드립니다.
           </p>
         </div>
 

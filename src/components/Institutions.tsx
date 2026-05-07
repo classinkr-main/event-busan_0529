@@ -91,39 +91,41 @@ const institutions: Institution[] = [
 
 export default function Institutions() {
   return (
-    <section className="relative py-32 sm:py-40">
+    <section id="institutions" className="relative py-20 sm:py-32 md:py-40">
       <div className="max-w-6xl mx-auto px-6 sm:px-10">
-        <div className="text-center mb-20">
-          <p className="text-sm tracking-[0.3em] text-white/50 mb-4">
+        <div className="text-center mb-12 sm:mb-20">
+          <p className="text-xs sm:text-sm tracking-[0.3em] text-white/50 mb-3 sm:mb-4">
             PARTICIPATING INSTITUTIONS
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight">
             해외 주요 참가 기관
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
-            중국 30+ · 일본 10 · 베트남 10 · 한국 100여 명{" "}
-            <span className="text-white/40">— 약 150명 규모의 행사</span>
+          <p className="mt-4 sm:mt-6 text-sm sm:text-lg text-white/60 max-w-2xl mx-auto">
+            아시아의 교육 리더 약 150명이 한자리에.
+            <span className="block mt-1.5 sm:mt-2 text-xs sm:text-sm text-white/40">
+              중국 30 · 일본 10 · 베트남 10 · 한국 100
+            </span>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           {institutions.map((inst) => (
             <article
               key={inst.name}
-              className="glass rounded-3xl p-8 hover:bg-white/[0.06] transition-all group"
+              className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-white/[0.06] transition-all group"
             >
-              <div className="flex items-start gap-4 mb-5">
-                <div className="text-3xl">{inst.flag}</div>
+              <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-5">
+                <div className="text-2xl sm:text-3xl">{inst.flag}</div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-xl sm:text-2xl font-bold leading-tight tracking-tight">
+                  <h3 className="text-lg sm:text-2xl font-bold leading-tight tracking-tight">
                     {inst.name}
                   </h3>
-                  <div className="mt-1 text-sm text-white/50">
+                  <div className="mt-1 text-xs sm:text-sm text-white/50">
                     {inst.nameLocal} · {inst.country}
                   </div>
                 </div>
               </div>
-              <p className="text-sm sm:text-[15px] leading-relaxed text-white/70">
+              <p className="text-[13px] sm:text-[15px] leading-relaxed text-white/70">
                 {inst.description}
               </p>
             </article>
