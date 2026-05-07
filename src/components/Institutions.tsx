@@ -17,7 +17,7 @@ const institutions: Institution[] = [
   },
   {
     name: "作业帮",
-    nameLocal: "쮜예방",
+    nameLocal: "줘예방",
     country: "China",
     flag: "🇨🇳",
     description:
