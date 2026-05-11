@@ -29,7 +29,7 @@ function formatKoreanPhone(input: string): string {
   return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
 }
 
-export default function RegisterForm() {
+export default function RegisterForm({ source }: { source?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [phone, setPhone] = useState("");
@@ -141,6 +141,7 @@ export default function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit} className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-10">
+      {source && <input type="hidden" name="source" value={source} />}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
         <Field label="이름" name="name" placeholder="홍길동" required />
         <Field label="소속" name="organization" placeholder="학원/기관명" required />

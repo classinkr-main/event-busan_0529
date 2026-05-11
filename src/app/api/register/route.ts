@@ -7,6 +7,7 @@ type Payload = {
   phone?: string;
   email?: string;
   dinner?: string;
+  source?: string;
 };
 
 const REQUIRED: (keyof Payload)[] = [
@@ -65,6 +66,7 @@ export async function POST(request: Request) {
         phone: body.phone,
         email: body.email,
         dinner: body.dinner ?? "",
+        source: body.source ?? "",
       }),
     });
 

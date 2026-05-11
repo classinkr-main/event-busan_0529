@@ -8,9 +8,11 @@
 2. **빈 스프레드시트** 새로 만들기 → 이름은 자유 (예: `2026 ASIA AI EDUCATION 신청자`)
 3. **첫 번째 행**에 헤더 입력:
 
-| A | B | C | D | E | F | G |
-|---|---|---|---|---|---|---|
-| Timestamp | Name | Organization | Position | Phone | Email | Dinner |
+| A | B | C | D | E | F | G | H |
+|---|---|---|---|---|---|---|---|
+| Timestamp | Name | Organization | Position | Phone | Email | Dinner | Source |
+
+> `Source`는 유입 경로 식별자입니다. 현재는 `han` / `wp` 두 값이 들어오며, 기본 경로(`/2026-asia-ai-busan`)에서 들어온 신청은 빈 값입니다.
 
 ## 2단계 — Apps Script 작성
 
@@ -30,6 +32,7 @@ function doPost(e) {
     data.phone,
     data.email,
     data.dinner,
+    data.source || "",
   ]);
 
   return ContentService

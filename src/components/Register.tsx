@@ -1,6 +1,6 @@
 import RegisterForm from "./RegisterForm";
 
-export default function Register() {
+export default function Register({ source }: { source?: string }) {
   return (
     <section id="register" className="relative py-20 sm:py-32 md:py-40">
       <div className="max-w-3xl mx-auto px-6 sm:px-10">
@@ -16,7 +16,7 @@ export default function Register() {
           </p>
         </div>
 
-        <RegisterForm />
+        <RegisterForm source={source} />
       </div>
     </section>
   );
