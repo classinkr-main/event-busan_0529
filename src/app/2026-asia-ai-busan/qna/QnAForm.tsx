@@ -96,11 +96,11 @@ export default function QnAForm({ speakers }: { speakers: Speaker[] }) {
     return (
       <div className="qna-success-card">
         <div className="qna-ok-eyebrow">Submitted</div>
-        <div className="qna-ok-title">질문이 잘 접수되었습니다</div>
+        <div className="qna-ok-title">잘 접수되었습니다</div>
         <div className="qna-ok-body">
-          대표님의 질문은 운영팀이 검토 후 연사에게 전달드립니다.
+          소중한 시간 내어 작성해주셔서 감사합니다.
           <br />
-          2026년 부산에서 뵙겠습니다.
+          5월 29일 행사장에서 뵙겠습니다.
         </div>
         <div className="qna-ok-actions">
           <button
